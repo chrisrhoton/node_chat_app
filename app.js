@@ -7,6 +7,9 @@ io.on('connection', function(socket) {
   socket.on('chat', function(chat) {
     console.log("Chat received from " + chat.username );
     console.log("Chat text is: '" + chat.chatText + "'" );
+
+    socket.emit('chat', chat);
+    
   });
 });
 
