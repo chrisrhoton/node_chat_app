@@ -1,11 +1,42 @@
-var socket = io.connect('http://localhost:5000');
+$(document).ready( function() {
 
-socket.emit('chat', {
-  chatText: "Hey!  How's it going?",
-  username: "Chris"
-});
+  var submitChatHandler,
+      chatEventHandler,
+      addChatToDOM,
+      socket = io.connect('http://27a459e6.ngrok.com/'),
+      user = 'Chris';
 
-socket.on('chat', function(chat) {
-  console.log("Chat received from " + chat.username );
-  console.log("Chat text is: '" + chat.chatText + "'" );
+  addChatToDOM = function(chat) {
+    var source     = $('#chat-template').html(),
+        template   = Handlebars.compile(source),
+        $container = $('#chat-window');
+
+    $container.append(template(chat));
+  };
+
+  submitChatHandler = function(e) {
+
+    var chatText = $('#chatInput').val(),
+        chat = { 
+          chatText: chatText,
+          userName: user
+        };
+
+    e.preventDefault();
+    $('#chatInput').val('');
+    socket.emit('chat', chat );
+
+    addChatToDOM(chat);
+
+  };
+
+  chatEventHandler = function(chat) {
+
+    addChatToDOM(chat);
+
+  };
+
+  $('.chat-interface').on('click', '.action-primary', submitChatHandler);
+  socket.on('chat', chatEventHandler);
+
 });

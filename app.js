@@ -4,13 +4,11 @@ var express = require('express'),
     io      = require('socket.io')(http);
 
 io.on('connection', function(socket) {
-  socket.on('chat', function(chat) {
-    console.log("Chat received from " + chat.username );
-    console.log("Chat text is: '" + chat.chatText + "'" );
 
-    socket.emit('chat', chat);
-    
+  socket.on('chat', function(chat) {
+    socket.broadcast.emit('chat', chat);
   });
+  
 });
 
 io.on('disconnect', function() {

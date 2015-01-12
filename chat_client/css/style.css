@@ -1,0 +1,83 @@
+#chatty {
+  width: 70%;
+  margin: auto;
+}
+
+.action {
+  text-align: right;
+  display: block;
+  float: left;
+  width: 100%;
+  padding: 1em;
+  padding-right: 0;
+  box-sizing: border-box; 
+}
+
+.action-primary {
+  border: 2px solid #ddddd9;
+  background-color: #ffffff;
+  border-radius: 2em; 
+}
+  .action-primary:hover {
+    border-color: #494947;
+    cursor: pointer; 
+  }
+
+.input, .input-text, .input-text--large, .input-textbox {
+  border-radius: 4px;
+  border: 2px solid #ddddd9;
+  padding: 1rem;
+  outline: none;
+  width: 80%;
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+  box-shadow: none; 
+}
+  .input:hover, .input-text:hover, .input-text--large:hover, {
+    border-color: rgba(73, 73, 71, 0.5); 
+  }
+  .input:active, .input-text:active, .input-text--large:active, {
+    border-color: #1fc0ef; 
+  }
+  .input:focus, .input-text:focus, .input-text--large:focus, {
+    border-color: #1fc0ef; 
+  }
+
+.input-text--large {
+  margin-top: 0;
+  font-size: 3.125rem; 
+}
+
+.input-textbox {
+  margin: auto;
+  resize: none;
+  height: 4rem;
+  min-height: 450px;
+  padding-bottom: 3rem;
+  background-color: #EEE; 
+  overflow: scroll;
+}
+  .input-textbox:active {
+    border-color: #1fc0ef; 
+  }
+  .input-textbox:focus {
+    border-color: #1fc0ef; 
+  }
+
+.input-text {
+  resize: none;
+  height: 20px;
+  width: 100%;
+}
+  .input-text:active {
+    border-color: #1fc0ef; 
+  }
+  .input-text:focus {
+    border-color: #1fc0ef; 
+  }
+
+.username {
+
+  font-weight: bold;
+
+}
